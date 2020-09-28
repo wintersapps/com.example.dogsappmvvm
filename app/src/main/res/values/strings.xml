@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DogsApp MVVM</string>
+    <string name="an_error_occurred_while_loading_dogs">An error occurred while loading dogs</string>
+</resources>

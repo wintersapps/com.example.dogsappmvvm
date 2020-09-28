@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="dog"
+            type="com.examples.dogsappmvvm.model.DogBreed" />
+
+        <variable
+            name="listener"
+            type="com.examples.dogsappmvvm.view.listeners.DogClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:id="@+id/dogLayout"
+        android:onClick="@{listener::onDogClicked}">
+
+        <TextView
+            android:id="@+id/dogId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(dog.uid)}"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dogAppCompatImageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:src="@mipmap/ic_dog_icon"
+            android:padding="4dp"
+            android:imageUrl="@{dog.imageUrl}"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/dogNameMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dog.dogBreed}"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lifespanMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dog.lifespan}"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

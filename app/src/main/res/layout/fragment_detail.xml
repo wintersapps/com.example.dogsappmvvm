@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dog"
+            type="com.examples.dogsappmvvm.model.DogBreed" />
+
+        <variable
+            name="palette"
+            type="com.examples.dogsappmvvm.model.DogPalette" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.DetailFragment"
+        android:background="@{palette.color}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dogAppCompatImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_dog_icon"
+            android:imageUrl="@{dog.imageUrl}"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dogNameMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogAppCompatImageView"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.dogBreed}"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dogPurposeMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogNameMaterialTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.breedFor}"
+            android:textSize="14sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dogTemperamentMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogPurposeMaterialTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.temperament}"
+            android:textSize="14sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dogLifespanMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dogTemperamentMaterialTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@{dog.lifespan}"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</layout>
